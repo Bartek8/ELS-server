@@ -1,0 +1,16 @@
+
+
+ess-app/target/
+ess-dto/target/
+ess-dao/target/
+ess-service/target/
+
+*.jar
+
+*.lst
+
+*.properties
+
+*.class
+
+\.idea/
