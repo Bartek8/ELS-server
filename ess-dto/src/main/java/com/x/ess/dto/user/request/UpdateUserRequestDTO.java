@@ -1,6 +1,5 @@
 package com.x.ess.dto.user.request;
 
-import com.x.ess.dao.others.Address;
 import com.x.ess.dao.others.UserType;
 import com.x.ess.dto.basic.UpdateDTO;
 import lombok.AllArgsConstructor;

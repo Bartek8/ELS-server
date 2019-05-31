@@ -1,7 +1,7 @@
 package com.x.ess.dao;
 
 
-import com.x.ess.dao.others.OrderStatus;
+import com.x.ess.dao.others.LoanStatus;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,13 +27,9 @@ public class Loan extends GenericDao {
     @Id
     private String id;
 
-    @DBRef
-    private Book book;
-
-    @DBRef
-    private User user;
-
-    private OrderStatus orderStatus;
+    private String bookId;
+    private String userId;
+    private LoanStatus loanStatus;
     private Date beginDate;
     private Date finishDate;
 

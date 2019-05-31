@@ -9,5 +9,5 @@ import com.x.ess.dao.Enumable;
 public enum LoanStatus {
 
     AVAILABLE,
-    CHECKED
+    UNAVAILABLE
 }

@@ -1,5 +1,6 @@
 package com.x.ess.app.controller;
 
+import com.querydsl.core.types.Predicate;
 import com.x.ess.dao.Loan;
 import com.x.ess.dao.User;
 import com.x.ess.dto.loan.request.CreateLoanRequestDTO;
@@ -8,6 +9,7 @@ import com.x.ess.dto.loan.response.LoanResponseDTO;
 import com.x.ess.service.exceptions.EntityNotFoundException;
 import com.x.ess.service.loan.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -40,11 +42,12 @@ public class LoanController {
     }
 
     @GetMapping(value = "")
-    public ResponseEntity<List<LoanResponseDTO>> listAllLoans() {
+    public ResponseEntity<List<LoanResponseDTO>> listAllBooks(@QuerydslPredicate(root = Loan.class) Predicate predicate) {
 
-        List<Loan> loans = loanService.findAll();
 
-        List<LoanResponseDTO> response = loans.stream()
+        List<Loan> books = loanService.findAll(predicate);
+
+        List<LoanResponseDTO> response = books.stream()
                 .map(loanService::convertToResponseDTO)
                 .collect(Collectors.toList());
 

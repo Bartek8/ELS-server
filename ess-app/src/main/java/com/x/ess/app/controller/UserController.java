@@ -1,5 +1,6 @@
 package com.x.ess.app.controller;
 
+import com.querydsl.core.types.Predicate;
 import com.x.ess.dao.User;
 import com.x.ess.dto.user.request.CreateUserRequestDTO;
 import com.x.ess.dto.user.request.UpdateUserRequestDTO;
@@ -7,6 +8,7 @@ import com.x.ess.dto.user.response.UserResponseDTO;
 import com.x.ess.service.exceptions.EntityNotFoundException;
 import com.x.ess.service.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.querydsl.binding.QuerydslPredicate;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -39,11 +41,12 @@ public class UserController {
     }
 
     @GetMapping(value = "")
-    public ResponseEntity<List<UserResponseDTO>> listAllUsers() {
+    public ResponseEntity<List<UserResponseDTO>> listAllUser(@QuerydslPredicate(root = User.class) Predicate predicate) {
 
-        List<User> users = userService.findAll();
 
-        List<UserResponseDTO> response = users.stream()
+        List<User> books = userService.findAll(predicate);
+
+        List<UserResponseDTO> response = books.stream()
                 .map(userService::convertToResponseDTO)
                 .collect(Collectors.toList());
 

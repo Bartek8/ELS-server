@@ -3,7 +3,6 @@ package com.x.ess.dao;
 import com.x.ess.dao.others.BookAvailability;
 import com.x.ess.dao.others.BookCategory;
 import com.x.ess.dao.others.Author;
-import com.x.ess.dao.others.PhoneNumber;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

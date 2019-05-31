@@ -30,7 +30,6 @@ public class User extends GenericDao {
     private String password;
     private String email;
     private UserType userType;
-    //private UserLoan userLoan;
     private List<String> Loan;
 
 }
