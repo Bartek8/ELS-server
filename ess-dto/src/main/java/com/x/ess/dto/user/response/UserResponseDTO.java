@@ -17,6 +17,7 @@ import java.util.List;
 @Builder
 public class UserResponseDTO {
 
+    private String id;
     private String name;
     private String surname;
     private String login;

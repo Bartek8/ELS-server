@@ -11,6 +11,7 @@ import org.springframework.core.GenericTypeResolver;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
@@ -99,9 +100,6 @@ public abstract class BasicServiceImpl<D extends GenericDao, R extends MongoRepo
         D newDocument = modelMapper.map(document, clazz[0]);
         newDocument = (D) repository.save(newDocument);
 
-
-
-
         return newDocument;
     }
 
@@ -130,6 +128,8 @@ public abstract class BasicServiceImpl<D extends GenericDao, R extends MongoRepo
         mapOnlyChangedFields = (D) repository.save(mapOnlyChangedFields);
         return mapOnlyChangedFields;
     }
+
+
 
     @Override
     public D update(D existingDocument, D updatedDocument) {

@@ -110,9 +110,10 @@ public class BookController {
                 HttpStatus.CREATED);
     }
 
+
     @PostMapping(value = "/update/{id}")
     public ResponseEntity<BookResponseDTO> updateBook(@PathVariable String id,
-                                                          @Valid @RequestBody UpdateBookRequestDTO request) {
+                                                      @Valid @RequestBody UpdateBookRequestDTO request) {
 
         Book book = bookService.findById(id);
 
@@ -127,6 +128,7 @@ public class BookController {
                 new HttpHeaders(),
                 HttpStatus.CREATED);
     }
+
 
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<BookResponseDTO> deleteBook(@PathVariable String id) {

@@ -20,5 +20,6 @@ public interface BookService
     public boolean validateName(String name);
 
     public List<Book> findAllByAuthor(String author);
+
     public List<Book> findAllByName(String name);
 }

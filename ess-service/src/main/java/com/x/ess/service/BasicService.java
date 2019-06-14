@@ -16,7 +16,7 @@ import java.util.List;
  * @author x
  */
 public interface BasicService<D extends GenericDao, R extends MongoRepository & QuerydslPredicateExecutor<D>,
-        C extends CreateDTO, U extends UpdateDTO> {
+        C extends CreateDTO, U extends UpdateDTO>{
 
     D create(C doc);
 
@@ -35,6 +35,7 @@ public interface BasicService<D extends GenericDao, R extends MongoRepository & 
     D update(D existingDoc, U updatedDoc);
 
     D update(D existingDocument, D updatedDocument);
+
 
     D delete(D doc);
 
