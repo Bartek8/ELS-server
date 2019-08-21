@@ -7,7 +7,7 @@
 
 ## General info
 This project is simple rest api with springboot, connected to the mongoDB database.
-User interface in another repository (ELS-front-end).
+User interface is in another repository (ELS-front-end).
 	
 ## Technologies
 Project is created with:
